@@ -20,14 +20,16 @@ function Home(){
     },[posts])
 
     async function getPosts(){
-        const posts = await service.getPosts([]).then(
-            (posts) => {
-                if(posts){
-                    setPosts(posts.documents)
+        if(posts.length) return;
+        console.log("Getting posts")
+        service.getPosts([]).then(
+            (postsResponse) => {
+                if(postsResponse){
+                    setPosts(postsResponse.documents)
                 }
                 else{
                     setLoading("")
-                    setPosts(false)
+                    if(posts.length) setPosts([])
                 }
             }
         )
@@ -48,7 +50,7 @@ function Home(){
             </Container>
         ):
         (
-            posts? (
+            posts.length? (
                 <Container>
                     <div className='flex flex-wrap overflow-scroll'>
                         {
@@ -65,8 +67,8 @@ function Home(){
             :
             (
                 <Container className='w-full flex justify-center py-8 text-center h-44'>
-                    <div className='flex justify-center items-center h-40'>
-                        Login To Read Posts
+                    <div className='flex justify-center items-center h-40 text-5xl p-4 text-center font-bold from-purple-600 via-pink-600 to-blue-600 bg-gradient-to-r bg-clip-text text-transparent'>
+                        Login/SignUp To Read Posts
                     </div>
                 </Container>
             )

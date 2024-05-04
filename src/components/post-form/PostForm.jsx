@@ -24,40 +24,28 @@ function PostForm({post}) {
     const navigate = useNavigate()
     const userData = useSelector(state => state.auth.userData)
 
-    console.log("USER At Post :: ",userData)
-
     const submit = async (data) => {
-        console.log("Data At Post :: ::  ",data)
         if(post){
-            console.log("Post at Update ",post.featuredImage)
 
             const file = data.image[0]? await service.uploadFile(data.image[0]) : null
 
             if(file){
-                console.log("File DELETE :: ",file)
                 await service.deleteFile(post.featuredImage)
             }
-
-            console.log("Step1 Upld")
             const dbPost = await service.updatePost(post.$id,{
                 ...data,
                 featuredImage: file? file.$id : undefined,
             })
-            console.log("Step2 Upld",dbPost)
 
             if(dbPost) {
-                console.log("DB POST Upld :: ",dbPost)
                 navigate(`/post/${dbPost.$id}`)
             }
             
         }else{
-            console.log("Data At PostForm ",data)
             const file = await service.uploadFile(data.image[0])
-            console.log("FILE :: ",file)
             if(file){
                 const fileId = file.$id
                 data.featuredImage = fileId
-                console.log("FINAL DATA O/P ",data.featuredImage)
                 const dbPost = await service.createPost({
                     ...data,
                     userId : userData.$id
@@ -77,7 +65,6 @@ function PostForm({post}) {
             .replace(/[^a-zA-Z\d\s]+/g,'-')
             .replace(/[\s]/g,'-')
         }
-        console.log("Value is :: ",value);
         return ''
     },[])
 
@@ -85,7 +72,6 @@ function PostForm({post}) {
         const subcription = watch((value, {name}) => {
             if(name === 'title'){
                 setValue('slug', slugTransform(value.title),{shouldValidate: true})
-                console.log("Slug :: ",slugTransform(value.title))
             }
         })
         return () => {

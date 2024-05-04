@@ -31,11 +31,10 @@ function App() {
     <div className='min-h-screen flex flex-wrap content-between'>
       <div className='w-full block'>
         <Header />
-        <main>
+        <main style={{marginBottom: '300px'}}>
            <Outlet />
         </main>
-        <div className='absolute -bottom-64 w-full overflow-hidden bg-white'><Footer/></div>
-        
+        <div className='w-full overflow-scroll bg-white' style={{position: 'fixed', bottom: '-12px'}}><Footer/></div>
       </div>
     </div>
   ) : (null)

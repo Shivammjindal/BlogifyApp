@@ -38,9 +38,8 @@ function Header() {
     },
   ]
 
-
   return (
-    <header className='py-3 shadow bg-white'>
+    <header className='py-3 shadow bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% ...'>
       <Container>
         <nav className='flex items-center'>
           <div className='mr-4'>
@@ -48,7 +47,7 @@ function Header() {
               <img src="https://thumbs.dreamstime.com/b/basic-rgb-145958704.jpg" alt="" className=' h-16 w-16' />
             </Link>
           </div>
-          <ul className='flex ml-auto'>
+          <ul className='flex ml-auto text-xl text-slate-800'>
             {navItems.map((item) => 
             item.active ? (
               <li key={item.name}>

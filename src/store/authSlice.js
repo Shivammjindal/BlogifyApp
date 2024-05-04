@@ -15,7 +15,6 @@ const authSlice = createSlice({
         login: (state, action) => {
             state.status=true
             state.userData = action.payload
-            console.log("userData At AuthSlice :: ",state.userData)
         },
 
         logout: (state,action) => {

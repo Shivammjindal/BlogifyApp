@@ -16,8 +16,6 @@ function Signup(){
 
     const create = async (data) => {
 
-        console.log("Data :: ",data)
-
         setError('')
         try {
 

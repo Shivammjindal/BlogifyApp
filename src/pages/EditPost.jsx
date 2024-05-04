@@ -8,7 +8,6 @@ function EditPost() {
 
     const [post, setPost] = useState(null)
     const {slug} = useParams()
-    console.log("Slug is :: ",slug)
     const navigate = useNavigate()
 
     useEffect(() => {

@@ -15,7 +15,6 @@ export default function Protected({ children, authentication = true }) {
     useEffect(() => {
 
         if(authentication && authStatus !== authentication){
-            console.log(authStatus)
             navigate("/login")
         }
         // to navigate unruthenticated persons to the home pages when authentication is false

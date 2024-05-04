@@ -18,9 +18,6 @@ export class Service{
 
     async createPost({title, slug, content, featuredImage, status, userId}){
         try {
-            console.log("Database Id : ",conf.appwriteDatabaseId)
-            console.log("Collection Id : ",conf.appwriteCollectionId)
-            console.log("UserId : ",userId)
             return await this.databases.createDocument(
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
@@ -124,12 +121,10 @@ export class Service{
 
     async deleteFile(fileId){
         try {
-            console.log("App Write ENDPOINT :: ",conf.appWriteEndPoint)
             const response = await this.bucket.deleteFile(
                 conf.appwriteBucketId,
                 fileId
             )
-            console.log("File Id at Delete :: ",response)
             return true
         } 
         catch (error) 

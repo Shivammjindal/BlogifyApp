@@ -32,7 +32,6 @@ export class AuthService {
     // we sending email and password like this becoz we send data in obj so here we use destructuring og objects...
     async login({email,password}){
         try {
-            console.log("Login Running ")
             return await this.account.createEmailSession(email,password);
         } catch (error) {
             throw error
