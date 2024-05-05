@@ -28,13 +28,15 @@ function App() {
   },[])
 
   return !loading ? (
-    <div className='min-h-screen flex flex-wrap content-between'>
-      <div className='w-full block'>
-        <Header />
-        <main style={{marginBottom: '300px'}}>
-           <Outlet />
-        </main>
-        <div className='w-full overflow-scroll bg-white' style={{position: 'fixed', bottom: '-12px'}}><Footer/></div>
+    <div className=''>
+      <div className='h-screen flex flex-wrap content-between '>
+        <div className='w-full block'>
+          <Header />
+          <main className='min-h-[500px]'>
+            <Outlet/>
+          </main>
+          <div className='w-full bg-white pb-16 '><Footer/></div>
+        </div>
       </div>
     </div>
   ) : (null)

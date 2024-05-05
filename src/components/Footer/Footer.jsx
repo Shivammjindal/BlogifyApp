@@ -5,7 +5,7 @@ function Footer() {
   return (
     <>
       
-      <div className='h-48 w-full my-16'>
+      <div className='h-48 w-full pb-4'>
       <hr/>
         <div className=' flex w-10/12 justify-between mx-auto gap-9 my-7'>
           <div className='flex flex-col w-4/12 gap-5'>
@@ -22,7 +22,7 @@ function Footer() {
               <NavLink to={'https://www.instagram.com/shivam_302003?igsh=MWp5ZjhqdWVzdmlmYg=='}>
                 <img src="https://static-00.iconduck.com/assets.00/instagram-icon-2048x2048-uc6feurl.png" alt="" className='h-10 w-10' />
               </NavLink>
-              <NavLink to={`www.linkedin.com/in/shivam-jindal-23833624a`}>
+              <NavLink to={`https://www.linkedin.com/in/shivam-jindal-23833624a/`}>
                 <img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/circle-linkedin-512.png" alt="" className='h-10 w-10' />
               </NavLink>
               <NavLink to={'https://github.com/Shivammjindal'}>

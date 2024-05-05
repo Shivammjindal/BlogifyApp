@@ -67,7 +67,7 @@ function Signup(){
                         to="/login"
                         className="font-medium text-primary transition-all duration-200 hover:underline"
                     >
-                        Sign Up 
+                        Login
                     </Link>
                 </p>
                 {error && <p className="text-red-500 text-center">
