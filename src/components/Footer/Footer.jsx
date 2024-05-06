@@ -40,7 +40,7 @@ function Footer() {
 
           <div className=' text-slate-900 font-medium text-[1rem]'>
             <div className='text-slate-600 text-xl'>
-              <NavLink to={'https://github.com/Shivammjindal/Blogify'}>
+              <NavLink to={'https://github.com/Shivammjindal/BlogifyApp'}>
                 Give your (Open Source) Contribution
               </NavLink>
               <div className='flex gap-2 mt-3'>
