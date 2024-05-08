@@ -5,9 +5,9 @@ function Footer() {
   return (
     <>
       
-      <div className='h-48 w-full pb-4'>
+      <div className='h-48 bg-slate-100 pb-4'>
       <hr/>
-        <div className=' flex w-10/12 justify-between mx-auto gap-9 my-7'>
+        <div className='bg-slate-100 flex justify-center mx-auto gap-40 my-7'>
           <div className='flex flex-col w-4/12 gap-5'>
             <NavLink to="/" className={`flex items-center`}>
               <img src="https://thumbs.dreamstime.com/b/basic-rgb-145958704.jpg" alt="" className=' h-20 w-20' />
@@ -73,8 +73,8 @@ function Footer() {
                 </NavLink>
               </div>
               <div>
-                <NavLink to="/help">
-                  Get Help
+                <NavLink to="/">
+                  Home
                 </NavLink>
               </div>
             </div>

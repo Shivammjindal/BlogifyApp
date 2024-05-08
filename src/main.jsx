@@ -13,6 +13,9 @@ import Signup from './pages/SignUp.jsx'
 import EditPost from "./pages/EditPost.jsx";
 import Post from "./pages/Post.jsx";
 import AllPost from './pages/AllPost.jsx'
+import ContactUs from './pages/ContactUs.jsx'
+import AboutUs from './pages/AboutUs.jsx'
+import Help from './pages/Help.jsx'
 
 const router = createBrowserRouter([
   {
@@ -70,6 +73,19 @@ const router = createBrowserRouter([
             path: "/post/:slug",
             element: <Post />,
         },
+        {
+            path:"/ContactUs",
+            element: <ContactUs/>
+        },
+        {
+            path:"/about",
+            element: <AboutUs/>
+        },
+        {
+            path:'/help',
+            element: <Help/>
+        }
+
     ],
 },
 ])
