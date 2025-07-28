@@ -43,7 +43,7 @@ export class AuthService {
             
             return await this.account.get();
         } catch (error) {
-            console.log(conf.appWriteEndPoint, conf.appwriteProjectId)
+            console.log("cnf ",conf.appWriteEndPoint, conf.appwriteProjectId)
             console.log("Appwrite serive :: getCurrentUser :: error", error);
         }
 
