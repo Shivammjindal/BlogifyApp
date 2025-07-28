@@ -40,9 +40,10 @@ export class AuthService {
 
     async getCurrentUser(){
         try {
-            console.log(conf.appWriteEndPoint, conf.appwriteProjectId)
+            
             return await this.account.get();
         } catch (error) {
+            console.log(conf.appWriteEndPoint, conf.appwriteProjectId)
             console.log("Appwrite serive :: getCurrentUser :: error", error);
         }
 
