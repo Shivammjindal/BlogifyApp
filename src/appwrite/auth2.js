@@ -32,16 +32,15 @@ export class AuthService {
     // we sending email and password like this becoz we send data in obj so here we use destructuring og objects...
     async login({email,password}){
         try {
-            console.log(conf.appWriteEndPoint, conf.appwriteUrl)
             return await this.account.createEmailSession(email,password);
         } catch (error) {
-            console.log("Error in login")
             throw error
         }
     }
 
     async getCurrentUser(){
         try {
+            console.log(conf.appWriteEndPoint, conf.appwriteProjectId)
             return await this.account.get();
         } catch (error) {
             console.log("Appwrite serive :: getCurrentUser :: error", error);
