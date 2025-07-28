@@ -12,6 +12,8 @@ export class AuthService {
             .setProject(conf.appwriteProjectId);
 
         this.account = new Account(this.client)
+
+        console.log("Account :: ",this.account)
     }
 
     async createAccount({email,password,name}){
@@ -34,6 +36,7 @@ export class AuthService {
         try {
             return await this.account.createEmailSession(email,password);
         } catch (error) {
+            console.log("Error in login")
             throw error
         }
     }
