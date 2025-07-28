@@ -19,9 +19,6 @@ function Footer() {
               <NavLink to={`https://twitter.com/shivam_302003`}>
                 <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/x-social-media-black-icon.png" className='h-10 w-10' alt="" />
               </NavLink>
-              <NavLink to={'https://www.instagram.com/shivam_302003?igsh=MWp5ZjhqdWVzdmlmYg=='}>
-                <img src="https://static-00.iconduck.com/assets.00/instagram-icon-2048x2048-uc6feurl.png" alt="" className='h-10 w-10' />
-              </NavLink>
               <NavLink to={`https://www.linkedin.com/in/shivam-jindal-23833624a/`}>
                 <img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/circle-linkedin-512.png" alt="" className='h-10 w-10' />
               </NavLink>

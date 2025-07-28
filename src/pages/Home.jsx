@@ -62,7 +62,6 @@ function Home(){
 
     async function getPosts(){
         if(posts.length) return;
-        console.log("Getting posts")
         service.getPosts([]).then(
             (postsResponse) => {
                 if(postsResponse){
