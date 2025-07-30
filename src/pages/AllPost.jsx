@@ -4,27 +4,26 @@ import { Container, PostCard } from "../components";
 import PropagateLoader from "react-spinners/PropagateLoader";
 
 function AllPost() {
+
   const color = "#000000";
   const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (posts.length) {
-      setLoading("");
-    } else {
-      setLoading("Loading...");
-    }
-  }, [posts]);
+    getPosts();
+  },[]);
 
   async function getPosts() {
+    setLoading(true)
+    console.log("Getting Posts")
     const posts = await service.getPosts([]);
     setPosts(posts.documents);
+    setLoading(false)
   }
-  getPosts();
 
   return (
     <div className="w-full py-8">
-      {loading.length ? (
+      {loading ? (
         <Container>
           <div className="flex justify-center items-center my-10">
             <PropagateLoader

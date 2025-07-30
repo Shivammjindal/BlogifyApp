@@ -14,7 +14,6 @@ function Home(){
     const [loading, setLoading] = useState("Loading...")
     const color = ['#000000']
     const navigate = useNavigate()
-    const [word, setWord] = useState('')
 
     function sleep(ms){
         return new Promise((resolve,reject) => setTimeout(resolve,ms))
@@ -23,60 +22,61 @@ function Home(){
     const phrases = ['Craft your essence into words','Connecting minds, inspiring ideas','Elevate your life. Discover new ideas','Spark your curiosity. Stay one step ahead.']
 
     let currPhaseIndex = 0;
-    const writeLoop = async () => {
 
-        const ele = document.querySelector('.textFlow')
+    if(!posts.length){
+        const writeLoop = async () => {
 
-        while (true) {
+            const ele = document.querySelector('.textFlow')
 
-            let currWord = phrases[currPhaseIndex];
-            
-            for(let i = 0; i < currWord.length; i++){
-                ele.innerHTML = currWord.substring(0,i+1);
-                await sleep(150);
+            while (true) {
+
+                let currWord = phrases[currPhaseIndex];
+                
+                for(let i = 0; i < currWord.length; i++){
+                    ele.innerHTML = currWord.substring(0,i+1);
+                    await sleep(150);
+                }
+
+                for(let i = currWord.length ; i >= 0; i--){
+                    ele.innerHTML = currWord.substring(0,i-1);
+                    await sleep(40);
+                }
+
+                currPhaseIndex++;
+                if(currPhaseIndex >= phrases.length)
+                    currPhaseIndex = 0
+                
+                await sleep(200);
             }
-
-            for(let i = currWord.length ; i >= 0; i--){
-                ele.innerHTML = currWord.substring(0,i-1);
-                await sleep(40);
-            }
-
-            currPhaseIndex++;
-            if(currPhaseIndex >= phrases.length)
-                currPhaseIndex = 0
-            
-            await sleep(200);
         }
+        writeLoop();
     }
-    writeLoop();
 
-    
     useEffect(() => {
-        if(posts.length){
-            setLoading("")
-        }
-        else{
-            setLoading("Loading...")
-        }
-    },[posts])
+        getPosts()
+    },[])
 
     async function getPosts(){
+
+        setLoading(true);
+
         if(posts.length) return;
-        service.getPosts([]).then(
+
+        await service.getPosts([]).then(
             (postsResponse) => {
                 if(postsResponse){
                     setPosts(postsResponse.documents)
                 }
                 else{
-                    setLoading("")
-                    if(posts.length) setPosts([])
+                    setLoading(false)
                 }
             }
         )
-    }
-    getPosts();
 
-    return (loading? (
+        setLoading(false);
+    }
+
+    return (loading ? (
             <Container>
                 <div className='flex justify-center items-center my-10'>
                     <PropagateLoader
@@ -90,7 +90,7 @@ function Home(){
             </Container>
         ):
         (
-            posts.length? (
+            posts.length ? (
                 <Container>
                     <div className='flex flex-wrap overflow-scroll mt-2'>
                         {
