@@ -23,34 +23,35 @@ function Home(){
 
     let currPhaseIndex = 0;
 
-    if(!posts.length){
-        const writeLoop = async () => {
+    const writeLoop = async () => {
 
-            const ele = document.querySelector('.textFlow')
+        const ele = document.querySelector('.textFlow')
 
-            while (true) {
+        while (true) {
 
-                let currWord = phrases[currPhaseIndex];
-                
-                for(let i = 0; i < currWord.length; i++){
-                    ele.innerHTML = currWord.substring(0,i+1);
-                    await sleep(150);
-                }
-
-                for(let i = currWord.length ; i >= 0; i--){
-                    ele.innerHTML = currWord.substring(0,i-1);
-                    await sleep(40);
-                }
-
-                currPhaseIndex++;
-                if(currPhaseIndex >= phrases.length)
-                    currPhaseIndex = 0
-                
-                await sleep(200);
+            let currWord = phrases[currPhaseIndex];
+            
+            for(let i = 0; i < currWord.length; i++){
+                ele.innerHTML = currWord.substring(0,i+1);
+                await sleep(150);
             }
+
+            for(let i = currWord.length ; i >= 0; i--){
+                ele.innerHTML = currWord.substring(0,i-1);
+                await sleep(40);
+            }
+
+            currPhaseIndex++;
+            if(currPhaseIndex >= phrases.length)
+                currPhaseIndex = 0
+            
+            await sleep(200);
         }
-        writeLoop();
     }
+
+    useEffect(() => {
+        writeLoop();
+    },[loading,posts])
 
     useEffect(() => {
         getPosts()
